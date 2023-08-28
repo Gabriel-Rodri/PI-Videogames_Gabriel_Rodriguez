@@ -1,0 +1,98 @@
+.wrapper img{
+	position: absolute;
+	color: rgb(48, 48, 48);
+	top: 0;
+	left: 0;
+	z-index: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.main_card {
+	background-color: #000000;
+	position: relative;
+	width: 5%;
+    transition: width 0.3s ease;
+	margin-bottom: 20px;
+	z-index: 100;
+	max-height: 100vh;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.main_card:hover {
+	opacity: 1;
+	width: 30%;
+	height: 100vh;
+	color: white;
+}
+
+.card_details {
+	padding: 20px;
+}
+
+.nombre {
+	font-size: 2rem;
+	margin-bottom: 10px;
+}
+
+.card_cat {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.rating,
+.genres,
+.fecha {
+	margin-right: 10px;
+	text-align: center;
+}
+
+.description {
+	margin-top: 10px;
+	white-space: pre-line;
+}
+
+.plataformas {
+	margin-top: 10px;
+}
+
+.card_right {
+	flex: 1;
+	position: relative;
+	z-index: -1; /* Mueve la imagen detrás del contenido */
+}
+.card_right img {
+	width: 100%;
+	height: 100%; /* Ocupa toda la altura de la ventana */
+	object-fit: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+    
+.btn {
+	text-decoration: none;
+	background-color: #000000;
+	color: white;
+	align-items: end;
+	padding: 10px 20px;
+	border-radius: 2px;
+	transition: background-color 0.5s ease;
+	border-radius: 6px;
+}
+
+.btn:hover {
+	background-color: #ff4646;
+}
+
