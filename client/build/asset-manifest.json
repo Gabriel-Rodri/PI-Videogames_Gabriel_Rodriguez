@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.481fb915.css",
+    "main.js": "/static/js/main.c7355d5d.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/mario-and-luigi-in-super-mario-bros-movie.jpg": "/static/media/mario-and-luigi-in-super-mario-bros-movie.58e42dd09ee90410192d.jpg",
+    "static/media/mario.gif": "/static/media/mario.4331792c29417dc7ee56.gif",
+    "index.html": "/index.html",
+    "main.481fb915.css.map": "/static/css/main.481fb915.css.map",
+    "main.c7355d5d.js.map": "/static/js/main.c7355d5d.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.481fb915.css",
+    "static/js/main.c7355d5d.js"
+  ]
+}
