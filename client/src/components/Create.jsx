@@ -1,19 +1,19 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { createVideogame, getByGenres, getPlatforms } from "../redux/actions";
 import s from '../style/Create.module.css'
 import { NavLink } from "react-router-dom";
 import { useNavigate } from 'react-router-dom'
 
+
 function validate (input) {
   let errors = {}
 
   if(!input.name) {
-    errors.name = 'El nombre es requerido'
+    errors.name = 'Name is required'
   } else if(!/^[a-zA-Z0-9-() .]+$/.test(input.name)){
-    errors.name = 'Solo se aceptan letras, numeros, guiones medios y parentesis'
+    errors.name = 'Only letters, numbers, hyphens, and parentheses are accepted.'
   }
 
   if(input.image.length !== 0 && !/^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/.test(input.image)){
@@ -21,122 +21,126 @@ function validate (input) {
   }
 
   if (!input.description) {
-    errors.description = 'La descripción es requerida';
+    errors.description = 'Description is required';
 } else if (input.description.length > 100) {
-    errors.description = 'La descripción es muy larga. (Max = 100 caracteres)';
+    errors.description = 'The description is very long. (Max = 100 characters)';
+} else if (/\s{2,}/.test(input.description)) {
+    errors.description = 'The description must not contain successive white spaces.';
+} else if (input.description.length < 100) {
+  errors.description = 'The description is very short. (Min = 10 characters)';
 }
 
+
   if(!input.released) {
-    errors.released = 'La fecha de lanzamiento es requerida'
+    errors.released = 'The release date is required'
   }
 
   if(!input.rating) {
-    errors.rating = 'El rating es requerido'
+    errors.rating = 'The rating is required'
   } else if(input.rating > 5) {
-    errors.rating = 'El rating no debe ser mayor a 5'
+    errors.rating = 'The rating should not be higher than 5'
   } else if(input.rating < 0) {
-    errors.rating = 'El rating no puede ser un numero negativo'
+    errors.rating = 'The rating cannot be a negative number'
   }
 
-  return errors //la funcion validate devuelve el objeto errors, ya sea vacio o con alguna propiedad si es q encuentra un error
+  return errors 
 }
 
 export default function Create() {
-  const [input, setInput] = useState({
-    name: "",
-    image: "",
-    description: "",
-    released: "",
-    rating: "",
+    const [input, setInput] = useState({
+    name: '',
+    image: '',
+    description: '',
+    released: '',
+    rating: '',
     genres: [],
-    platforms: []
+    platforms: [],
   });
 
-  const [errors, setErrors] = useState({}); //me creo un estado local, en donde errors = {}
-  
+  const [errors, setErrors] = useState({});
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const generos = useSelector((state) => state.genres);
-  const plataformas = useSelector(state => state.platforms);
-  const allNames = useSelector(state => state.allVideogames)
+  const plataformas = useSelector((state) => state.platforms);
+  const allNames = useSelector((state) => state.allVideogames);
 
-  
   useEffect(() => {
     dispatch(getByGenres());
-    dispatch(getPlatforms())
-  }, [dispatch])
-
+    dispatch(getPlatforms());
+  }, [dispatch]);
 
   function handleSubmit(e) {
     e.preventDefault();
-    let noRepeat = allNames.filter(n => n.name === input.name)
-    if(noRepeat.length !== 0) {
-      alert('Ya existe un juego con ese nombre, por favor elija otro')
+    let noRepeat = allNames.filter((n) => n.name === input.name);
+    if (noRepeat.length !== 0) {
+      alert('Ya existe un juego con ese nombre, por favor elija otro');
     } else {
-        let error = Object.keys(validate(input)) // Object.keys(errors) --> errors = {} => devuelve un array de strings q representa todas las propiedades del objeto
-        //solo habra propiedades si es que HAY ALGUN ERROR
-        if(error.length !== 0 || !input.genres.length || !input.platforms.length) { //Entonces si hay algun error, error va a ser un array con la propiedad en donde haya un error, osea que su length !== 0
-          alert('Llene los campos correctamente')
-          return
-        } else {
-          dispatch(createVideogame(input));
-          setInput({
-            name: "",
-            image: "",
-            description: "",
-            released: "",
-            rating: "",
-            genres: [],
-            platforms: [],
-          });
-          alert("Felicidades, el juego fue creado exitosamente.");
-        }
-        navigate('/home')
+      let error = Object.keys(validate(input));
+      if (error.length !== 0 || !input.genres.length || !input.platforms.length) {
+        alert('Llene los campos correctamente');
+        return;
+      } else {
+        dispatch(createVideogame(input));
+        setInput({
+          name: '',
+          image: '',
+          description: '',
+          released: '',
+          rating: '',
+          genres: [],
+          platforms: [],
+        });
+        alert('Felicidades, el juego fue creado exitosamente.');
+      }
+      navigate('/home');
     }
   }
 
   function handleChange(e) {
     e.preventDefault();
-    setInput((prev) => ({ ...prev, [e.target.name]: e.target.value}));
-    setErrors(validate({
-      ...input,
-      [e.target.name]: [e.target.value]
-    })
-    )
+    setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setErrors(
+      validate({
+        ...input,
+        [e.target.name]: [e.target.value],
+      })
+    );
   }
 
   function handleGenres(e) {
-    if(!input.genres.includes(e.target.value)) {
+    if (!input.genres.includes(e.target.value)) {
       setInput({
         ...input,
         genres: [...input.genres, e.target.value],
-      })
+      });
     }
   }
 
   function handlePlatforms(e) {
-    if(!input.platforms.includes(e.target.value)) {
+    if (!input.platforms.includes(e.target.value)) {
       setInput({
         ...input,
-        platforms: [...input.platforms, e.target.value]
-      })
+        platforms: [...input.platforms, e.target.value],
+      });
     }
   }
 
   function handleDeleteG(e) {
     setInput({
       ...input,
-      genres: input.genres.filter((gen) => gen !== e)
+      genres: input.genres.filter((gen) => gen !== e),
     });
   }
 
   function handleDeleteP(e) {
     setInput({
       ...input,
-      platforms: input.platforms.filter((plat) => plat !== e)
+      platforms: input.platforms.filter((plat) => plat !== e),
     });
   }
+
 
   return (
     <div>

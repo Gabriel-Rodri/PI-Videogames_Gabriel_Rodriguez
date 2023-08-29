@@ -10,7 +10,7 @@ router.get('/:idVideogame', async (req, res, next) => {
     let data = await videogame(idVideogame)
 
     try {
-        data ? res.send(data) : res.status(404).send('El id ingresado no coincide con un videojuego en particular')
+        data ? res.send(data) : res.status(404).send('The id entered does not match a particular video game')
 
     } catch(e) {
         next(e)
