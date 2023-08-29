@@ -20,11 +20,11 @@ function validate (input) {
     errors.image='invalid URL'
   }
 
-  if(!input.description) {
-    errors.description = 'La descripcion es requerida'
-  } else if (input.description.length > 100) {
-    errors.description = 'La descripcion es muy larga. (Max = 100 caracteres)'
-  }
+  if (!input.description) {
+    errors.description = 'La descripción es requerida';
+} else if (input.description.length > 100) {
+    errors.description = 'La descripción es muy larga. (Max = 100 caracteres)';
+}
 
   if(!input.released) {
     errors.released = 'La fecha de lanzamiento es requerida'
@@ -93,13 +93,12 @@ export default function Create() {
           alert("Felicidades, el juego fue creado exitosamente.");
         }
         navigate('/home')
-
     }
   }
 
   function handleChange(e) {
     e.preventDefault();
-    setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setInput((prev) => ({ ...prev, [e.target.name]: e.target.value}));
     setErrors(validate({
       ...input,
       [e.target.name]: [e.target.value]
@@ -143,7 +142,7 @@ export default function Create() {
     <div>
       <form onSubmit={(e) => handleSubmit(e)} className={s.box_form}>
         <div className={s.form}>
-          <h2 className={s.titulo}>CREA TU PROPIO VIDEOJUEGO</h2>
+          <h2 className={s.titulo}>Create A New Videogame</h2>
 
           <div className={s.grupo}>
             <input
@@ -154,7 +153,7 @@ export default function Create() {
               value={input.name}
               onChange={(e) => handleChange(e)}
               /> <span className={s.barra}></span>
-            <label className={s.label}>Nombre: </label>
+            <label className={s.label}>Name: </label>
             {errors.name && (
               <p className={s.danger}>{errors.name}</p>
             )}
@@ -169,7 +168,7 @@ export default function Create() {
               value={input.image}
               onChange={(e) => handleChange(e)}
               /> <span className={s.barra}></span>
-            <label className={s.label}>Imagen URL: </label>
+            <label className={s.label}>URL Image: </label>
             {errors.image && (
               <p className={s.danger}>{errors.image}</p>
             )}
@@ -186,7 +185,7 @@ export default function Create() {
               placeholder='yyyy-mm-dd'
               onChange={(e) => handleChange(e)}
               /> <span className={s.barra}></span>
-            <label className={s.label}>Fecha de lanzamiento: </label>
+            <label className={s.label}>Release date: </label>
             {errors.released && (
               <p className={s.danger}>{errors.released}</p>
             )}
@@ -211,14 +210,14 @@ export default function Create() {
 
           <div className={s.grupo}>
             <select className={s.select_create} id="genres" defaultValue="" onChange={(e) => handleGenres(e)}>
-              <option className={s.option_create} value='' disabled hidden>Elija los géneros...</option>
+              <option className={s.option_create} value='' disabled hidden>Choose genres...</option>
               {generos.map((g) => {
                 return (
                   <option className={s.option_create} key={g.id} value={g.name}>{g.name}</option>
                   );
                 })}
             </select> <span className={s.barra}></span>
-            <label className={s.label}>Generos: </label>
+            <label className={s.label}>Genders: </label>
             {input.genres.map((g) => (
               <div className={s.box_opcion}>
                 <div className={s.opcion_title}>{g}</div>
@@ -230,14 +229,14 @@ export default function Create() {
 
           <div className={s.grupo}>
               <select className={s.select_create} id="platforms" defaultValue="" onChange={(e) => handlePlatforms(e)}>
-                  <option className={s.option_create} value="" disabled hidden>Elija las plataformas...</option>
+                  <option className={s.option_create} value="" disabled hidden>Choose platforms...</option>
                   {plataformas?.map(p => {
                     return (
                       <option className={s.option_create} value={p} key={p}>{p}</option>
                       );
                     })}
               </select> <span className={s.barra}></span>
-              <label className={s.label}>Plataformas:  </label>
+              <label className={s.label}>Platforms:  </label>
               {input.platforms.map((p) => (
                 <div className={s.box_opcion}>
                   <div className={s.opcion_title}>{p}</div>
@@ -254,17 +253,17 @@ export default function Create() {
               value={input.description}
               onChange={(e) => handleChange(e)}
               > </textarea>
-            <label className={s.description}>Descripcion: </label>
+            <label className={s.description}>Descripction: </label>
             {errors.description && (
               <p className={s.danger}>{errors.description}</p>
             )}
           </div>
       </div>
       <div>
-          <button type="submit" className={s.btn_submit}>CREAR VIDEOJUEGO</button>
+          <button type="submit" className={s.btn_submit}>Create</button>
       </div>
       <div className={s.box_home}>
-          <NavLink to={'/home'} className={s.back_home}>Cancelar</NavLink>
+          <NavLink to={'/home'} className={s.back_home}>Cancel</NavLink>
       </div>
       </form>
 

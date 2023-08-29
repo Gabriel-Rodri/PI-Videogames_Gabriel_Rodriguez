@@ -30,8 +30,11 @@ function Detail() {
         <div>
             <div className={s.wrapper}>
             <img src={details.image ? details.image : img } alt={`${details.name}'s`}/>
+                
                 <div className={s.main_card}>
+                    
                     <div className={s.card_left}>
+
                         <div className={s.card_details}>
                         <h1 className={s.nombre}>{details.name}</h1>
                         <div className={s.card_cat}>
@@ -39,17 +42,22 @@ function Detail() {
                             <p className={s.fecha}> 📅{details.released}</p>
                             <p className={s.rating}>⭐{details.rating}</p>
                         </div>
-                            <div className={s.description}>✎{details.description?.replace(regex, '').replace('&#39', '')}</div>
-                            <div className={s.plataformas}>🖥: {details.platforms?.join(', ')}</div>
+                            <div className={s.description}>✎description:{details.description?.replace(regex, '').replace('&#39;s', '')}</div>
+                            <div className={s.plataformas}>🖥plataforms: {details.platforms?.join(', ')}</div>
+                        </div>
+
+                        <div>
                         <NavLink to={'/home'} className={s.btn}>
                         <span> Home </span>
                         </NavLink>
                         </div>
                     </div>
+                    <div className= {s.flecha}>
+                        <h2>{"➤"}</h2>
+                    </div>
                     </div>
             </div>
             <div>
-                
             </div>
 
         </div>

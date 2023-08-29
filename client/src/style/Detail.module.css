@@ -18,18 +18,22 @@
 }
 
 .main_card {
+	display: flex;
+	align-items: center;
+}
+
+.card_left {
 	background-color: #000000;
 	position: relative;
 	width: 5%;
     transition: width 0.3s ease;
-	margin-bottom: 20px;
 	z-index: 100;
 	max-height: 100vh;
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
 
-.main_card:hover {
+.card_left:hover {
 	opacity: 1;
 	width: 30%;
 	height: 100vh;
@@ -55,7 +59,7 @@
 .genres,
 .fecha {
 	margin-right: 10px;
-	text-align: center;
+	align-items: center;
 }
 
 .description {
@@ -69,22 +73,21 @@
 
 .card_right {
 	flex: 1;
-	position: relative;
-	z-index: -1; /* Mueve la imagen detrás del contenido */
+	position: relative; 
 }
 .card_right img {
 	width: 100%;
-	height: 100%; /* Ocupa toda la altura de la ventana */
+	height: 100%;
 	object-fit: cover;
 	position: absolute;
 	top: 0;
 	left: 0;
-}
-    
+} 
+
 .btn {
 	text-decoration: none;
-	background-color: #000000;
-	color: white;
+	background-color: #ffffff;
+	color: rgb(0, 0, 0);
 	align-items: end;
 	padding: 10px 20px;
 	border-radius: 2px;
@@ -93,6 +96,18 @@
 }
 
 .btn:hover {
-	background-color: #ff4646;
+	background-color: #000000;
+	border: #ff4646 2px solid;
+	color: #ff4646;
 }
 
+.flecha {
+	font-family: "handjet", cursive;
+    position: relative;
+	background-color: #000000;
+	color:#ff4646;
+	margin-left: 0;
+	padding: 0%;
+	line-height: 60%;
+	font-size: 300%;
+}

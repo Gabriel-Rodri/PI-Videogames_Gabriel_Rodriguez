@@ -5,7 +5,7 @@ export default function Error () {
 
     return (
         <div className={s.notvg}>
-            <h1>No se encontraron videojuegos</h1>
+            <h1>No videogames were found</h1>
         </div>
     )
 }

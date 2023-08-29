@@ -7,7 +7,7 @@ const infoApi = async() => {
     let url = `https://api.rawg.io/api/games?key=bc1bb0ae62664232a0e926209f30dd87`
     let videojuegos = []
     try {
-        for(let i=0; i<2; i++) {
+        for(let i=0; i<5; i++) {
             const respuesta = await axios.get(url)
             
             respuesta.data.results.map(videogame => {

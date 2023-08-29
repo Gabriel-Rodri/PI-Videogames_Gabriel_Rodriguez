@@ -2,16 +2,17 @@
     text-align: center;
     font-weight: 700;
     font-family: "Playfair Display SC";
-    color: whitesmoke
+    color: rgb(255, 255, 255)
 }
 
 .box_form {
-    background: #ff1d1d;
+    background: rgb(250, 48, 65);
     padding: 45px 0;
     border-radius: 10px;
     height: auto;
     display: inline-block;
     margin-top: 20px;
+    max-width: 35%;
 
 }
 
@@ -29,18 +30,18 @@
 
 .create_input {
     background: none;
-    color: #c6c6c6;
+    color: #ffffff;
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
     width: 100%;
     border: none;
-    border-bottom: 1px solid #49454567;
+    border-bottom: 1px solid #ffffff;
 }
 
 .create_input:focus {
     outline: none;
-    color: #5e5d5d
+    color: #ffffff
 }
 
 .label {
@@ -58,7 +59,7 @@
 .create_input:valid~.label {
     top: -14px;
     font-size: 15px;
-    color: #495867;
+    color: #ffffff;
 }
 
 textarea {
@@ -75,7 +76,7 @@ textarea {
     font-family: monospace;
     font-size: 0.875em;
     
-    border: solid 2px #49454567;
+    border: solid 2px #ffffff;
 }
 
 .description {
@@ -93,7 +94,7 @@ textarea:focus~.label,
 textarea:valid~.label{
     top: -30px;
     font-size: 15px;
-    color: black;
+    color: rgb(250, 250, 250);
 }
 
 .barra{
@@ -129,89 +130,75 @@ textarea:valid~.label{
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
-    box-shadow: 
-    0 0 2px rgb(255 240 243), 
-    0 0 4px rgb(255 204 213), 
-    0 0 6px rgb(255 179 193), 
-    0 0 8px rgb(255 143 163), 
-    0 0 10px rgb(255 117 143), 
-    0 0 12px rgb(255 77 109);
 }
 
 .select_create {
-    background-color: #FFCDB2;
-    color: black;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
     padding: 7px;
     font-size: 16px;
     appearance: button;
     outline: none;
     margin: 10px;
     font-family: system-ui;
-  }
+}
 
 .select_create .option_create {
     padding: 30px;
-  }
+}
 
-  .danger {
-      color: #d90429;
-      line-height: 0px;
-      font-size: 12px;
-      margin-top: 10px;
-  }
+.danger {
+    color: #ffffff;
+    line-height: 0px;
+    font-size: 12px;
+    margin-top: 10px;
+}
 
-  .box_opcion {
+.box_opcion {
     display: inline-block;
     margin-right: 10px;
     margin-bottom: 15px;
-    background-color: #fbb1bd;
+    background-color: #000000;
+    color: white;
     padding: 5px;
     border-radius: 5px;
-  }
+}
 
-  .opcion_title {
+.opcion_title {
     display: inline-block;
     margin-right: 10px;
     font-size: 12px;
-  }
+}
 
-  .btn_remove {
+.btn_remove {
     display: inline-block;
     width: 30px;
     text-align: center;
     padding: 0;
     height: 20px;
-    background: #a4133c;
-  }
+    background: #d70000;
+    border-radius: 6px;
+}
 
-  .x {
-      color: white;
-  }
+.x {
+    color: white;
+}
 
-  .box_home {
+.box_home {
     margin-top: 20px;
-  }
+}
 
-  .back_home {
-    border-radius: 8px;
-    padding: 8px;
+.back_home {
+    padding: 3px;
     text-decoration: none;
     font-family: system-ui;
     background: #6D6875;
     border: 1px solid;
     display: block;
-    width: 20%;
-    margin: 10px auto;
+    width: 25%;
+    margin:auto;
     color: #fff;
-    height: 40px;
+    height: auto;
     font-size: 16px;
     cursor: pointer;
-    box-shadow: 
-    0 0 2px rgb(255 240 243), 
-    0 0 4px rgb(255 204 213), 
-    0 0 6px rgb(255 179 193), 
-    0 0 8px rgb(255 143 163), 
-    0 0 10px rgb(255 117 143), 
-    0 0 12px rgb(255 77 109);
-    font-weight: 400;
-  }
+}

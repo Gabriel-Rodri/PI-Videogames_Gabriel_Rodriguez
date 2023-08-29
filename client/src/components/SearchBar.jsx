@@ -3,8 +3,7 @@ import { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { getNames } from '../redux/actions'
 import s from '../style/SearchBar.module.css'
-import lupa from '../imagenes/pixlr-bg-result.png'
-//import Loading from './Loading'
+import lupa from '../imagenes/lupa.png'
 
 
 export default function SearchBar () {
@@ -33,12 +32,11 @@ export default function SearchBar () {
                 <div className={s.buscar}>
                     <span htmlFor="name"></span>
                     <input 
-                        //type="search"
                         type='text'
                         id="name"
                         autoComplete="off"
                         value={state}
-                        placeholder='Buscar videojuego'
+                        placeholder='Search...'
                         onChange={e => handleChange(e)}
                     />
                     <button type="submit" className={s.btn}><img src={lupa} alt='lupa'/></button>

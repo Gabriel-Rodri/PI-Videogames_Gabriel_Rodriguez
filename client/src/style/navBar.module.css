@@ -2,12 +2,12 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #ff4a4a;
+    background-color: rgb(224,25,40);
 }
 
 
@@ -19,16 +19,19 @@
 }
 
 .to{
-    color: #fff;
+    background-color:rgb(224,25,40);
+    color: #000000;
     text-decoration: none;
     padding: 5px;
-    border-radius: 10px;
-    font-size: 21px;
+    font-size: 25px;
     font-family: monospace;
+    padding: 6px;
+    border: #000000 3px solid;
+    
 }
 
 .to:hover {
-    background-color: #ff4a4a;
+    background-color:white;
 }
 
 .to:active {
@@ -50,12 +53,14 @@
     height: auto;
 }
 
-.imagencita {
-    justify-content: center;
+.title {
+    display: flex;
+    font-family: "handjet", cursive;
+    font-size: 40px;
+    letter-spacing: 2px;
+    justify-content: flex-start;
     position: relative;
-    margin: 0 40px 0 0;
-    height: auto;
-    width: auto;
+
 }
 
 .busqueda {
