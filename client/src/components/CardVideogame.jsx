@@ -1,5 +1,5 @@
 import React from "react";
-import s from '../style/CardVideogame.module.css'
+import s from '../style/CardVideogame.module.css';
 import { NavLink } from "react-router-dom";
 
 class CardVideogame extends React.Component {
