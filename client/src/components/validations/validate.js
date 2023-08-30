@@ -17,6 +17,8 @@ function validate(input) {
         errors.description = 'The description is very long. (Max = 100 characters)';
     } else if (/\s{2,}/.test(input.description)) {
         errors.description = 'The description must not contain successive white spaces.';
+    } else if (input.description.length < 10) {
+        errors.description = 'The description is very short. (Min = 10 characters)';
     }
 
 
