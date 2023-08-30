@@ -13,7 +13,7 @@ export const GET_PLATFORMS = 'GET_PLATFORMS'
 export const getAllVideogames = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get("http://localhost:3001/videogames");
+      const { data } = await axios.get("https://videogamesgg.onrender.com/videogames");
       return dispatch({
         type: "GET_ALL_VIDEOGAMES",
         payload: data,
