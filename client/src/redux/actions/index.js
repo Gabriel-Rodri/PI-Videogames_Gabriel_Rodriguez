@@ -28,7 +28,7 @@ export const getNames = (name) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:3001/videogames/filt?name=${name}`
+        `https://videogamesgg.onrender.com/videogames/filt?name=${name}`
       );
       return dispatch({
         type: "GET_NAMES",
@@ -47,7 +47,7 @@ export const getNames = (name) => {
 export const getVideogame = (id) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`http://localhost:3001/videogame/${id}`);
+      const { data } = await axios.get(`https://videogamesgg.onrender.com/videogame/${id}`);
       return dispatch({
         type: "GET_VIDEOGAME",
         payload: data,
@@ -61,7 +61,7 @@ export const getVideogame = (id) => {
 export const getByGenres = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`http://localhost:3001/genres`);
+      const { data } = await axios.get(`https://videogamesgg.onrender.com/genres`);
       return dispatch({
         type: "GET_BY_GENRES",
         payload: data,
@@ -76,7 +76,7 @@ export const createVideogame = (videogame) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post(
-        `http://localhost:3001/create`,
+        `https://videogamesgg.onrender.com/create`,
         videogame
       );
       return dispatch({
@@ -112,7 +112,7 @@ export const filterByGenres = (payload) => {
 
 export const getPlatforms = () => {
   return async (dispatch) => {
-      const url = await axios.get('http://localhost:3001/videogames/filt/platforms')
+      const url = await axios.get('https://videogamesgg.onrender.com/videogames/filt/platforms')
       //console.log(url)
       return dispatch({
           type: 'GET_PLATFORMS',
