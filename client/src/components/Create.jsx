@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createVideogame, getByGenres, getPlatforms } from "../redux/actions";
 import s from '../style/Create.module.css'
 import { NavLink } from "react-router-dom";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import validate from "./validations/validate";
 
 export default function Create() {
